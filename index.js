@@ -39,7 +39,7 @@ app.use(
 const sess = {
   secret: 'MYSECRET',
   cookie: {
-    SameSite: 'none',
+    sameSite: 'none',
     secure: true,
   },
 }
