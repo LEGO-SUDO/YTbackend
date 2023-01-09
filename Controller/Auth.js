@@ -28,7 +28,7 @@ export const signin = async (req, res, next) => {
     if (!isCorrect) return next(createError(404, 'Wrong password!'))
     const token = jwt.sign({ id: user._id }, process.env.JWT)
     const { password, ...others } = user._doc
-    res.res
+    res
       .cookie('access_token', token, {
         httpOnly: true,
         sameSite: 'none',
@@ -47,7 +47,7 @@ export const googleAuth = async (req, res, next) => {
 
     if (user) {
       const token = jwt.sign({ id: user._id }, process.env.JWT)
-      res.res
+      res
         .cookie('access_token', token, {
           httpOnly: true,
           sameSite: 'none',
@@ -62,7 +62,7 @@ export const googleAuth = async (req, res, next) => {
       })
       const savedUser = await newUser.save()
       const token = jwt.sign({ id: savedUser._id }, process.env.JWT)
-      res.res
+      res
         .cookie('access_token', token, {
           httpOnly: true,
           sameSite: 'none',
