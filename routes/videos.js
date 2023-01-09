@@ -20,7 +20,7 @@ const router = express.Router()
 router.post('/', addVideo)
 
 //update video
-router.put('/:id', verifyToken, updateVideo)
+router.put('/:id', updateVideo)
 
 // delete video
 router.delete('/:id', verifyToken, deleteVideo)
@@ -38,7 +38,7 @@ router.get('/trend', trend)
 router.get('/random', random)
 
 //sub
-router.get('/sub', verifyToken, subVideo)
+router.get('/sub', subVideo)
 
 //search by tag
 router.get('/tags', getByTag)
