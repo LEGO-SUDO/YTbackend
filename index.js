@@ -5,7 +5,7 @@ import authRoutes from './routes/auth.js'
 import userRoutes from './routes/users.js'
 import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
-
+import cors from 'cors'
 import cookieParser from 'cookie-parser'
 
 dotenv.config()
@@ -28,6 +28,13 @@ const connect = () => {
       throw err
     })
 }
+
+app.use(
+  cors({
+    origin: '*',
+    credentials: true,
+  })
+)
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authRoutes)
