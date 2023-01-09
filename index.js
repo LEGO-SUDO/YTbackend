@@ -7,6 +7,7 @@ import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
+import cookieSession from 'cookie-session'
 
 dotenv.config()
 
@@ -35,6 +36,15 @@ app.use(
     credentials: true,
   })
 )
+
+app.use(
+  cookieSession({
+    secure: true,
+    httpOnly: true,
+    sameSite: 'none',
+  })
+)
+
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/auth', authRoutes)
