@@ -30,7 +30,7 @@ const connect = () => {
 
 app.use(
   cors({
-    origin: '*',
+    origin: 'https://vocal-sprite-dd6c42.netlify.app',
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE'],
   })
