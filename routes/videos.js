@@ -17,7 +17,7 @@ import { verifyToken } from '../verifyToken.js'
 const router = express.Router()
 
 //create a video
-router.post('/', verifyToken, addVideo)
+router.post('/', addVideo)
 
 //update video
 router.put('/:id', verifyToken, updateVideo)
