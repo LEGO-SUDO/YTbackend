@@ -7,8 +7,7 @@ import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import cookieSession from 'cookie-session'
-
+import session from 'express-session'
 dotenv.config()
 
 const port = process.env.PORT || 8800
@@ -37,13 +36,14 @@ app.use(
   })
 )
 
-app.use(
-  cookieSession({
-    secure: true,
-    httpOnly: true,
+const sess = {
+  secret: 'MYSECRET',
+  cookie: {
     sameSite: 'none',
-  })
-)
+    secure: true,
+  },
+}
+app.use(session(sess))
 
 app.use(cookieParser())
 app.use(express.json())
