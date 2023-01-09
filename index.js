@@ -8,7 +8,7 @@ import commentRoutes from './routes/comments.js'
 import cors from 'cors'
 //import Cookies from 'js-cookie'
 import cookieParser from 'cookie-parser'
-//import session from 'express-session'
+import session from 'express-session'
 dotenv.config()
 
 const port = process.env.PORT || 8800
@@ -37,16 +37,16 @@ app.use(
   })
 )
 
-// const sess = {
-//   secret: 'MYSECRET',
-//   name: 'access-token',
-//   cookie: {
-//     sameSite: 'none',
-//     secure: true,
-//   },
-// }
+const sess = {
+  secret: 'MYSECRET',
+  name: 'access-token',
+  cookie: {
+    sameSite: 'none',
+    secure: true,
+  },
+}
 
-//app.use(session(sess))
+app.use(session(sess))
 
 app.use(cookieParser())
 
