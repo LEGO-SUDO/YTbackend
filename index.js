@@ -41,18 +41,18 @@ Cookies.set('access_token', 'value', {
   secure: true,
 })
 
-const sess = {
-  secret: 'MYSECRET',
-  name: 'access-token',
-  cookie: {
-    sameSite: 'none',
-    secure: true,
-  },
-}
+// const sess = {
+//   secret: 'MYSECRET',
+//   name: 'access-token',
+//   cookie: {
+//     sameSite: 'none',
+//     secure: true,
+//   },
+// }
 
-app.use(session(sess))
+//app.use(session(sess))
 
-app.use(cookieParser())
+//app.use(cookieParser())
 
 app.use(express.json())
 app.use('/api/auth', authRoutes)
