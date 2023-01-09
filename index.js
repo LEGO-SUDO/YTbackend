@@ -6,9 +6,9 @@ import userRoutes from './routes/users.js'
 import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
 import cors from 'cors'
-import Cookies from 'js-cookie'
+//import Cookies from 'js-cookie'
 import cookieParser from 'cookie-parser'
-import session from 'express-session'
+//import session from 'express-session'
 dotenv.config()
 
 const port = process.env.PORT || 8800
@@ -36,10 +36,6 @@ app.use(
     credentials: true,
   })
 )
-Cookies.set('access_token', 'value', {
-  sameSite: 'none',
-  secure: true,
-})
 
 // const sess = {
 //   secret: 'MYSECRET',
@@ -52,7 +48,7 @@ Cookies.set('access_token', 'value', {
 
 //app.use(session(sess))
 
-//app.use(cookieParser())
+app.use(cookieParser())
 
 app.use(express.json())
 app.use('/api/auth', authRoutes)
