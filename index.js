@@ -39,7 +39,17 @@ app.use(
   })
 )
 
-app.options('/api/users/like/:videoId', cors())
+app.options(
+  '/api/users/like/:videoId',
+  cors({
+    origin: [
+      'https://vocal-sprite-dd6c42.netlify.app',
+      'http://localhost:3000',
+    ],
+    credentials: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+  })
+)
 
 app.use(cookieParser())
 
