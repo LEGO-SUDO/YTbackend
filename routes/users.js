@@ -25,19 +25,7 @@ router.options(
 )
 
 //Update user
-router.put(
-  '/:id',
-  cors({
-    origin: [
-      'https://vocal-sprite-dd6c42.netlify.app',
-      'http://localhost:3000',
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  }),
-  verifyToken,
-  updateUser
-)
+router.put('/:id', verifyToken, updateUser)
 
 //delete a user
 router.delete('/:id', verifyToken, deleteUser)
@@ -51,18 +39,7 @@ router.put('/sub/:id', subscribe)
 router.put('/unsub/:id', unsubscribe)
 
 //like a video
-router.put(
-  '/like/:videoId',
-  cors({
-    origin: [
-      'https://vocal-sprite-dd6c42.netlify.app',
-      'http://localhost:3000',
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  }),
-  like
-)
+router.put('/like/:videoId', like)
 
 //dislike a video
 router.put('/dislike/:videoId', dislike)

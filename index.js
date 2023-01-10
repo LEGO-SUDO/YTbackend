@@ -39,6 +39,8 @@ app.use(
   })
 )
 
+app.options('/api/users/like/:videoId', cors())
+
 app.use(cookieParser())
 
 app.use(express.json())
