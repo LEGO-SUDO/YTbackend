@@ -39,7 +39,7 @@ router.put('/sub/:id', subscribe)
 router.put('/unsub/:id', unsubscribe)
 
 //like a video
-router.post('/like/:videoId', like)
+router.put('/like/:videoId', like)
 
 //dislike a video
 router.put('/dislike/:videoId', dislike)
