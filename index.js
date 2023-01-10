@@ -40,7 +40,7 @@ app.use(
 )
 
 app.options(
-  '/api/users/like/:videoId',
+  '/api/users/like/63b830735d7cf3adf689f1d4',
   cors({
     origin: [
       'https://vocal-sprite-dd6c42.netlify.app',
