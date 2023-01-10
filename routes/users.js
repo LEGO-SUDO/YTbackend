@@ -51,7 +51,7 @@ router.put('/sub/:id', subscribe)
 router.put('/unsub/:id', unsubscribe)
 
 //like a video
-router.post(
+router.put(
   '/like/:videoId',
   cors({
     origin: [
