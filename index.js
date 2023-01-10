@@ -36,15 +36,6 @@ app.use(
   })
 )
 
-app.options(
-  '/api/users/like/63b830735d7cf3adf689f1d4',
-  cors({
-    origin: ['https://legotube.onrender.com', 'http://localhost:3000'],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  })
-)
-
 app.use(cookieParser())
 
 app.use(express.json())
