@@ -37,6 +37,7 @@ app.use(
     ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Access-Control-Allow-Origin'],
   })
 )
 
