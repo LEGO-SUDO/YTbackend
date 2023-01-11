@@ -37,10 +37,22 @@ app.use(
     ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Access-Control-Allow-Origin'],
+    allowedHeaders: [Access - Control - Allow - Origin],
   })
 )
-
+app.options(
+  '/api/users/like/:videoId',
+  cors({
+    origin: [
+      'https://legotube.onrender.com',
+      'http://localhost:3000',
+      'https://vocal-sprite-dd6c42.netlify.app',
+    ],
+    credentials: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [Access - Control - Allow - Origin],
+  })
+)
 app.use(cookieParser())
 
 app.use(express.json())
