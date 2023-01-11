@@ -37,7 +37,7 @@ app.use(
     ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [Access - Control - Allow - Origin],
+    allowedHeaders: ['Access-Control-Allow-Origin'],
   })
 )
 app.options(
@@ -50,7 +50,7 @@ app.options(
     ],
     credentials: true,
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [Access - Control - Allow - Origin],
+    allowedHeaders: ['Access-Control-Allow-Origin'],
   })
 )
 app.use(cookieParser())
