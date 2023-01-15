@@ -44,7 +44,10 @@ const connect = () => {
 //   })
 // )
 
-var allowlist = ['http://example1.com', 'http://example2.com']
+var allowlist = [
+  'https://legotube.onrender.com',
+  'https://vocal-sprite-dd6c42.netlify.app',
+]
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions
   if (allowlist.indexOf(req.header('Origin')) !== -1) {
