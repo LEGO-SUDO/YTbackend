@@ -39,7 +39,8 @@ app.use(
     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
     allowedHeaders: [
       'Access-Control-Allow-Origin',
-      'Content-Type, Authorization',
+      'Content-Type',
+      'Authorization',
     ],
   })
 )
