@@ -6,7 +6,7 @@ import { verifyToken } from '../verifyToken.js'
 const router = express.Router()
 
 // add comment
-router.post('/', verifyToken, addComment)
+router.post('/', addComment)
 
 //delete comment
 router.delete('/:id', verifyToken, deleteComment)
