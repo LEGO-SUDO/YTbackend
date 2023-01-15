@@ -28,21 +28,21 @@ const connect = () => {
     })
 }
 
-// app.use(
-//   cors({
-//     origin: [
-//       'https://legotube.onrender.com',
-//       'http://localhost:3000',
-//       'https://vocal-sprite-dd6c42.netlify.app',
-//     ],
-//     credentials: true,
-//     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-//     allowedHeaders: [
-//       'Access-Control-Allow-Origin',
-//       'Content-Type, Authorization',
-//     ],
-//   })
-// )
+app.use(
+  cors({
+    origin: [
+      'https://legotube.onrender.com',
+      'http://localhost:3000',
+      'https://vocal-sprite-dd6c42.netlify.app',
+    ],
+    credentials: true,
+    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+    allowedHeaders: [
+      'Access-Control-Allow-Origin',
+      'Content-Type, Authorization',
+    ],
+  })
+)
 
 var allowlist = [
   'https://legotube.onrender.com',
