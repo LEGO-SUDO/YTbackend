@@ -36,6 +36,7 @@ export const signin = async (req, res, next) => {
       })
       .status(200)
       .json(others)
+    console.log(req.cookies)
   } catch (err) {
     next(err)
   }
@@ -64,13 +65,15 @@ export const googleAuth = async (req, res, next) => {
       const token = jwt.sign({ id: savedUser._id }, process.env.JWT)
       res
         .cookie('access_token', token, {
-          httpOnly: true,
+          httpOnly: false,
           sameSite: 'none',
           secure: true,
+          domain: 'https://legotube.onrender.com',
         })
         .status(200)
         .json(savedUser._doc)
     }
+    console.log(req.cookies)
   } catch (err) {
     next(err)
   }
