@@ -28,29 +28,40 @@ const connect = () => {
     })
 }
 
-app.use(
-  cors({
-    origin: [
-      'https://legotube.onrender.com',
-      'http://localhost:3000',
-      'https://vocal-sprite-dd6c42.netlify.app',
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [
-      'Access-Control-Allow-Origin',
-      'Content-Type, Authorization',
-    ],
-  })
-)
+// app.use(
+//   cors({
+//     origin: [
+//       'https://legotube.onrender.com',
+//       'http://localhost:3000',
+//       'https://vocal-sprite-dd6c42.netlify.app',
+//     ],
+//     credentials: true,
+//     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: [
+//       'Access-Control-Allow-Origin',
+//       'Content-Type, Authorization',
+//     ],
+//   })
+// )
+
+var allowlist = ['http://example1.com', 'http://example2.com']
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions
+  if (allowlist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false } // disable CORS for this request
+  }
+  callback(null, corsOptions) // callback expects two parameters: error and options
+}
 
 app.use(cookieParser())
 
 app.use(express.json())
-app.use('/api/auth', authRoutes)
-app.use('/api/users', userRoutes)
-app.use('/api/videos', videoRoutes)
-app.use('/api/comments', commentRoutes)
+app.use('/api/auth', cors(corsOptionsDelegate), authRoutes)
+app.use('/api/users', cors(corsOptionsDelegate), userRoutes)
+app.use('/api/videos', cors(corsOptionsDelegate), videoRoutes)
+app.use('/api/comments', cors(corsOptionsDelegate), commentRoutes)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
