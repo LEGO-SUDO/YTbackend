@@ -12,18 +12,6 @@ import { verifyToken } from '../verifyToken.js'
 import cors from 'cors'
 const router = express.Router()
 
-router.options(
-  '/products/:id',
-  cors({
-    origin: [
-      'https://vocal-sprite-dd6c42.netlify.app',
-      'http://localhost:3000',
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-  })
-)
-
 //Update user
 router.put('/:id', verifyToken, updateUser)
 
@@ -39,7 +27,7 @@ router.put('/sub/:id', subscribe)
 router.put('/unsub/:id', unsubscribe)
 
 //like a video
-router.put('/like/:videoId', like)
+router.put('/like/:videoId', verifyToken, like)
 
 //dislike a video
 router.put('/dislike/:videoId', dislike)

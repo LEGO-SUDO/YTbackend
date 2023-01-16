@@ -64,7 +64,7 @@ var corsOptionsDelegate = function (req, callback) {
 app.use(cookieParser())
 
 app.use(express.json())
-app.router.get('/api/cookie', console.log(cookies))
+
 app.use('/api/auth', cors(corsOptionsDelegate), authRoutes)
 app.use('/api/users', cors(corsOptionsDelegate), userRoutes)
 app.use('/api/videos', cors(corsOptionsDelegate), videoRoutes)
