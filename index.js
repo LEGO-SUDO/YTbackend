@@ -6,9 +6,11 @@ import userRoutes from './routes/users.js'
 import videoRoutes from './routes/videos.js'
 import commentRoutes from './routes/comments.js'
 import cors from 'cors'
+
 import cookieParser from 'cookie-parser'
 dotenv.config()
 
+const router = express.Router()
 const port = process.env.PORT || 8800
 
 const app = express()
@@ -62,6 +64,7 @@ var corsOptionsDelegate = function (req, callback) {
 app.use(cookieParser())
 
 app.use(express.json())
+app.router.get('/api/cookie', console.log(cookies))
 app.use('/api/auth', cors(corsOptionsDelegate), authRoutes)
 app.use('/api/users', cors(corsOptionsDelegate), userRoutes)
 app.use('/api/videos', cors(corsOptionsDelegate), videoRoutes)

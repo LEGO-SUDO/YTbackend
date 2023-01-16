@@ -33,10 +33,10 @@ export const signin = async (req, res, next) => {
         httpOnly: true,
         sameSite: 'none',
         secure: true,
+        maxAge: 3600000 * 5,
       })
       .status(200)
       .json(others)
-    console.log(req.cookies)
   } catch (err) {
     next(err)
   }
