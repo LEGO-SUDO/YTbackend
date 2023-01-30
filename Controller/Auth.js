@@ -50,9 +50,10 @@ export const googleAuth = async (req, res, next) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT)
       res
         .cookie('access_token', token, {
+          expires: new Date(Date.now() + 604800000),
+          secure: env.ENVIRONMENT === 'LIVE',
+          sameSite: env.ENVIRONMENT === 'LIVE' ? 'none' : 'lax',
           httpOnly: true,
-          sameSite: 'none',
-          secure: true,
         })
         .status(200)
         .json(user._doc)
@@ -65,10 +66,10 @@ export const googleAuth = async (req, res, next) => {
       const token = jwt.sign({ id: savedUser._id }, process.env.JWT)
       res
         .cookie('access_token', token, {
-          httpOnly: false,
-          sameSite: 'none',
-          secure: true,
-          domain: 'https://legotube.onrender.com',
+          expires: new Date(Date.now() + 604800000),
+          secure: env.ENVIRONMENT === 'LIVE',
+          sameSite: env.ENVIRONMENT === 'LIVE' ? 'none' : 'lax',
+          httpOnly: true,
         })
         .status(200)
         .json(savedUser._doc)
