@@ -17,10 +17,10 @@ import { verifyToken } from '../verifyToken.js'
 const router = express.Router()
 
 //create a video
-router.post('/', addVideo)
+router.post('/', verifyToken, addVideo)
 
 //update video
-router.put('/:id', updateVideo)
+router.put('/:id', verifyToken, updateVideo)
 
 // delete video
 router.delete('/:id', verifyToken, deleteVideo)
