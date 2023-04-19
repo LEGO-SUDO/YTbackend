@@ -50,7 +50,7 @@ app.use(
 var allowlist = [
   'https://legotube.onrender.com',
   'https://vocal-sprite-dd6c42.netlify.app',
-  'https://videostubestream.netlify.app',
+  'https://videostubestream.netlify.app/',
 ]
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions
