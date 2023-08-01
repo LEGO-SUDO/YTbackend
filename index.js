@@ -1,3 +1,5 @@
+
+
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
@@ -29,22 +31,23 @@ const connect = () => {
       throw err
     })
 }
-
+// {
+//     origin: [
+//       'https://legotube.onrender.com',
+//       'http://localhost:3000',
+//       'https://vocal-sprite-dd6c42.netlify.app',
+//       ''
+//     ],
+//     credentials: true,
+//     methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+//     allowedHeaders: [
+//       'Access-Control-Allow-Origin',
+//       'Content-Type',
+//       'Authorization',
+//     ],
+//   }
 app.use(
-  cors({
-    origin: [
-      'https://legotube.onrender.com',
-      'http://localhost:3000',
-      'https://vocal-sprite-dd6c42.netlify.app',
-    ],
-    credentials: true,
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [
-      'Access-Control-Allow-Origin',
-      'Content-Type',
-      'Authorization',
-    ],
-  })
+  cors()
 )
 
 var allowlist = [
@@ -66,10 +69,10 @@ app.use(cookieParser())
 
 app.use(express.json())
 
-app.use('/api/auth', cors(corsOptionsDelegate), authRoutes)
-app.use('/api/users', cors(corsOptionsDelegate), userRoutes)
-app.use('/api/videos', cors(corsOptionsDelegate), videoRoutes)
-app.use('/api/comments', cors(corsOptionsDelegate), commentRoutes)
+app.use('/api/auth', authRoutes)
+app.use('/api/users', userRoutes)
+app.use('/api/videos', videoRoutes)
+app.use('/api/comments', commentRoutes)
 
 app.use((err, req, res, next) => {
   const status = err.status || 500
